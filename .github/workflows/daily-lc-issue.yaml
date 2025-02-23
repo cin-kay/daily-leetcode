@@ -16,11 +16,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.10"  # Change this to match your script's requirements
+          python-version: "3.10"
 
       - name: Install dependencies
         run: |
           pip install -U requests python-dotenv
 
       - name: Run the script
+        env:
+            GITHUB_REPOSITORY: ${{ github.repository }}
+            GITHUB_TOKEN: ${{ secrets.LC_GH_TOKEN }}
         run: python lc_gh_issue_bot.py
