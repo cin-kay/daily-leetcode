@@ -1,22 +1,23 @@
-name: Create GitHub Issue for Leetcode Daily Problem
+name: Create LeetCode Daily Problem Issue
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "7 0 * * *" # UTC time
+    - cron: "7 0 * * *"  # Runs daily at 00:07 UTC
 
 jobs:
-  create_github_issue_for_leetcode_daily:
+  create-issue:
     runs-on: ubuntu-latest
-    name: Create GH Issue for LC Daily
     permissions:
       issues: write
     steps:
-      - name: Set up Python
+      - name: Set up Python 3.9+
         uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-      - name: Create GitHub issue for Leetcode daily problem
+          python-version: '3.9'  # Force Python 3.9 or later
+
+      - name: Install Dependencies
+        run: pip install requests urllib3  # Ensure correct dependencies
+
+      - name: Create Daily LeetCode Issue
         uses: jeremypruitt/gha-github-issue-for-leetcode-daily@v0.1.0
