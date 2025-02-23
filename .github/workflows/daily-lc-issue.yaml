@@ -14,5 +14,5 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
-      - name: Get daily LC problem and create new GH issue
-        uses: jeremypruitt/gha-github-issue-for-leetcode-daily@master
+      - name: Create GitHub issue for Leetcode daily problem
+        uses: jeremypruitt/gha-github-issue-for-leetcode-daily@v0.1.0
