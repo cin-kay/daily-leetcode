@@ -30,4 +30,4 @@ jobs:
       - name: Run the script
         env:
           DEBUG: "true"  # Set any additional variables if needed
-        run: python main.py
+        run: python lc_gh_issue_bot.py
