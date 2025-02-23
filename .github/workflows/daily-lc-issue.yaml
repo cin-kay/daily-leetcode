@@ -3,7 +3,7 @@ name: Create LeetCode Daily Problem Issue
 on:
   workflow_dispatch:
   schedule:
-    - cron: "7 0 * * *"  # Runs daily at 00:07 UTC
+    - cron: "0 0 * * *"  # Runs daily at 7am VNT
 
 jobs:
   create-daily-lc-issue:
@@ -28,6 +28,4 @@ jobs:
           echo "GITHUB_TOKEN=${{ secrets.LC_GH_TOKEN }}" >> $GITHUB_ENV
 
       - name: Run the script
-        env:
-          DEBUG: "true"  # Set any additional variables if needed
         run: python lc_gh_issue_bot.py
