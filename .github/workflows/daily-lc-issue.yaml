@@ -6,12 +6,21 @@ on:
     - cron: "7 0 * * *"  # Runs daily at 00:07 UTC
 
 jobs:
-  create-issue:
+  create-daily-lc-issue:
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
+
     steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-      - name: Daily Leetcode Issue Creator
-        uses: cin-kay/leetcode-daily-issue-action@main
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"  # Change this to match your script's requirements
+
+      - name: Install dependencies
+        run: |
+          pip install -U requests python-dotenv
+
+      - name: Run the script
+        run: python lc_gh_issue_bot.py
