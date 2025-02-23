@@ -11,13 +11,14 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Set up Python 3.9+
+      - name: Set up Python 3.10+
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'  # Force Python 3.9 or later
+          python-version: '3.10'  # Force Python 3.9 or later
 
       - name: Install Dependencies
         run: pip install requests urllib3  # Ensure correct dependencies
-
+      - name: Checkout the repository
+        uses: actions/checkout@v3
       - name: Create Daily LeetCode Issue
         uses: jeremypruitt/gha-github-issue-for-leetcode-daily@v0.1.0
