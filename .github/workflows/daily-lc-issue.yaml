@@ -12,6 +12,10 @@ jobs:
     permissions:
       issues: write
     steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
       - name: Checkout the repository
         uses: actions/checkout@v3
       - name: Create GitHub issue for Leetcode daily problem
