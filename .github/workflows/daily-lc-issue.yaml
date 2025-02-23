@@ -1,0 +1,18 @@
+name: Create GitHub Issue for Leetcode Daily Problem
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "7 0 * * *" # UTC time
+
+jobs:
+  create_github_issue_for_leetcode_daily:
+    runs-on: ubuntu-latest
+    name: Create GH Issue for LC Daily
+    permissions:
+      issues: write
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+      - name: Get daily LC problem and create new GH issue
+        uses: jeremypruitt/gha-github-issue-for-leetcode-daily@master
