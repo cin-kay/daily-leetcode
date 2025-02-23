@@ -22,8 +22,12 @@ jobs:
         run: |
           pip install -U requests python-dotenv
 
+      - name: Set environment variables
+        run: |
+          echo "GITHUB_REPOSITORY=${{ github.repository }}" >> $GITHUB_ENV
+          echo "GITHUB_TOKEN=${{ secrets.LC_GH_TOKEN }}" >> $GITHUB_ENV
+
       - name: Run the script
         env:
-            GITHUB_REPOSITORY: ${{ github.repository }}
-            GITHUB_TOKEN: ${{ secrets.LC_GH_TOKEN }}
-        run: python lc_gh_issue_bot.py
+          DEBUG: "true"  # Set any additional variables if needed
+        run: python main.py
