@@ -3,7 +3,7 @@ name: Create LeetCode Daily Problem Issue
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 0 * * *"  # Runs daily at 7am VNT
+    - cron: "0 2 * * *"  # Runs daily at 7am VNT
 
 jobs:
   create-daily-lc-issue:
