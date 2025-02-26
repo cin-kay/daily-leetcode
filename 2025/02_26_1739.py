@@ -19,7 +19,7 @@ def bf_max_abs_sum(nums: list[int]) -> int:
 
 
 def max_abs_sum(nums: list[int]) -> int:
-    # kadane's algo
+    # kadane's algo, but run for twice
     min_curr_sum = max_curr_sum = max_sum = min_sum = nums[0]
     for num in nums[1:]:
         max_curr_sum = max(max_curr_sum + num, num)
